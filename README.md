@@ -47,7 +47,7 @@ della libreria si chiama: `jpeg.py`.
 Le immagini utlizzate si trovano nel folder data:
 
 1. Baby Yoda: [logo](/data/BabyYoda.bmp "BabyYoda.bmp")
-2. Ben Kenobi: [logo](/data/BenKenobi.bmp "BenKenobi.bmp")
+2. C3PO: [logo](/data/BenKenobi.bmp "C3PO.bmp")
 3. Darth Vader Death Star: [logo](/data/DarthVader_DeathStar.bmp "DarthVader_DeathStar.bmp")
 4. Darth Vader: [logo](/data/DarthVader.bmp "DarthVader.bmp")
 5. Millenium Falcon: [logo](/data/MilleniumFalcon.bmp "MilleniumFalcon.bmp")
@@ -55,7 +55,7 @@ Le immagini utlizzate si trovano nel folder data:
 # 3. Libreria Jpeg (Custom)
 La libreria `Jpeg` si trova nel folder `models/` ed è composta da seguenti metodi:
 
-1. ```python
+ ```python
  # Costruttore: inizializza l'oggetto
     def __init__(self):
         return 

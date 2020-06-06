@@ -183,6 +183,5 @@ class Jpeg:
 
 
         plt.title("Confronto tra l'immagine originale e quella compressa dal DCT2" )
-        plt.imshow(np.hstack
-                   ((im, im_dct)), cmap='gray')
+        plt.imshow(np.hstack((im, im_dct)), cmap='gray')
         plt.show()
