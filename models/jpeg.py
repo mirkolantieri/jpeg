@@ -58,7 +58,7 @@ class Jpeg:
 
 ################################################################################################
         
-      # definisco il metodo della compressione del blocco con la dct2 "fatta in casa" (dctEncode)
+          # definisco il metodo della compressione del blocco con la dct2 "fatta in casa" (dctEncode)
       
     def dctEncode(image, dim, f,  d):
         
@@ -73,8 +73,8 @@ class Jpeg:
                 
                 for i in np.r_[imsize[0]:f]:
                     for j in np.r_[imsize[1]:f]:
-                        #dct[i:(i+f), j:(j+f)] = np.cos(np.pi*i*(2*i-1)/(2*f)) * np.cos(np.pi*j*(2*j-1)/(2*f))  
-                        dct[i:(i+f), j:(j+f)] = Jpeg.DCT2(f) # --- il metodo della libreria già disponibile
+                        dct[i:(i+f), j:(j+f)] = np.cos(np.pi*i*(2*i-1)/(2*f)) * np.cos(np.pi*j*(2*j-1)/(2*f))
+                        #dct[i:(i+f), j:(j+f)] = Jpeg.DCT2(f) # --- il metodo della libreria già disponibile
                         
                 # stampo la matrice del dct
                 print(dct)
@@ -92,8 +92,8 @@ class Jpeg:
                     for j in np.r_[imsize[1]:f]:
                         if i == f and j == f:
                             dct[i:(i+f), j:(j+f)] = 0
-                        #dct[i:(i+f), j:(j+f)] = np.cos(np.pi*i*(2*i-1)/(2*f)) * np.cos(np.pi*j*(2*j-1)/(2*f))   
-                        dct[i:(i+f), j:(j+f)] = Jpeg.DCT2(f)   # --- il metodo della libreria già disponibile
+                        dct[i:(i+f), j:(j+f)] = np.cos(np.pi*i*(2*i-1)/(2*f)) * np.cos(np.pi*j*(2*j-1)/(2*f))
+                        #dct[i:(i+f), j:(j+f)] = Jpeg.DCT2(f)   # --- il metodo della libreria già disponibile
                 
                 # stampo la matrice del dct 
                 print(dct)
@@ -110,8 +110,8 @@ class Jpeg:
                     for j in np.r_[imsize[1]:f]:
                         while i >= d and j >= d:
                             dct[i:(i+f), j:(j+f)] = 0
-                    #dct[i:(i+f), j:(j+f)] = np.cos(np.pi*i*(2*i-1)/(2*f)) * np.cos(np.pi*j*(2*j-1)/(2*f))
-                    dct[i:(i+f), j:(j+f)] = Jpeg.DCT2(f) # --- il metodo della libreria già disponibile
+                        dct[i:(i+f), j:(j+f)] = np.cos(np.pi*i*(2*i-1)/(2*f)) * np.cos(np.pi*j*(2*j-1)/(2*f))
+                    #dct[i:(i+f), j:(j+f)] = Jpeg.DCT2(f) # --- il metodo della libreria già disponibile
                         
                 # stampo la matrice del dct
                 print(dct)
@@ -155,12 +155,12 @@ class Jpeg:
                         
             # stampo la matrice del idct            
             print(im_dct)
-            plt.show()
             plt.title("Immagine IDCT2 dal blocco "+ str(f) + "x" +str(f))
-            
+
             # buttiamo i valori al di fuori [0;255] nei parametri vmax e vmin
             plt.imshow(im_dct[dim:dim+f,dim:dim+f], cmap="gray", vmax=255, vmin=0)
-            
+            plt.show()
+
         else: 
             f = np.abs(f)
             
@@ -182,6 +182,13 @@ class Jpeg:
         print(im_dct)
 
 
+        plt.title("Immagine dopo la compressione DCT2" )
+        plt.imshow(im_dct, cmap='gray')
+        plt.show()
+
+        """ Questa parte del codice mette in confronto l'immagine originale con quella dopo la compressione
         plt.title("Confronto tra l'immagine originale e quella compressa dal DCT2" )
         plt.imshow(np.hstack((im, im_dct)), cmap='gray')
         plt.show()
+
+        """

@@ -27,7 +27,7 @@ class Home():
         for i in np.arange(matrix.size):
             for j in np.arange(matrix.size):
                     dct[:N, :N] = fftpack.fft(fftpack.fft( matrix[:N,:N], axis=0), axis=1 )
-        
+
             
         print("DCT2 Libreria Fast:")
         print()
