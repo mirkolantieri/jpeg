@@ -1,7 +1,6 @@
 """ Il file main.py e ci aiuter� a programmare una semplice interfaccia per l'utente in cui si
 ha la possibilità  a scegliere le immagini attuali del programma oppure
 un'altra immagine scelta dall'utente.
-
 """
 
 # importo delle libreri necessarie
@@ -58,4 +57,3 @@ if g != "0":
     end = time.perf_counter()
 
     j.compare(image)
-

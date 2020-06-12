@@ -1,58 +1,39 @@
-from models.dctHome import Home as h
+from models.home import Home as h
 import time
-import matplotlib.pyplot as plt
+import plotly.express as px
+import numpy as np
+import csv
+import pandas as pd
+
+dimension_array = np.linspace(25, 700, num=28)
+time_array_library_dct = []
+time_array_my_dct = []
+for dimension in dimension_array:
+    print("Computazione delle dimensioni: " + str(dimension))
+    matrix = h.createMatrix(dimension)
+
+    start_time = time.time()
+    fastDCT = h.DCT2(matrix)
+    time_array_library_dct.append(time.time() - start_time)
+
+    start_time = time.time()
+    myDCT = h.customDCT(matrix, dimension)
+    time_array_my_dct.append(time.time() - start_time)
+
+# qui scriviamo il risultato in file csv che ci servirà per registrare i dati
+# per poi plottare il grafico
+with open('data/data.csv', 'w') as w:
+    writer = csv.writer(w, delimiter=',')
+    writer.writerows(zip(dimension_array, time_array_library_dct, time_array_my_dct))
 
 
-matrx = h.createMatrix(8)
-
-"""print(matrx)
-
-
-h.DCT2(matrx, 8)
-
-h.customDCT(matrx, 8)
 """
+Il codice sotto ci permette di vedere graficamente il comportamento computazionale delle nostre
+trasformate
 
-# Caso semplice
 
+df = pd.read_csv('data/data.csv') # legge il file csv
 
-times1 = []
-N = 2
-
+fig = px.line(df, title='Complessità computazionale delle DCT (Fast e Custom inclusa)')
+fig.show()
 """
-
-for x in range(0,10,1):
-    start_time = time.perf_counter()
-    a = h.createMatrix(N)
-    h.DCT2(a, N)
-    elapsed_time = time.perf_counter() - start_time
-    N = N + 5
-    times1.append(elapsed_time)
-    
-x = [i for i in range(0,10,1)]
-plt.figure()
-plt.title("DCT2 FAST")
-plt.xlabel("Complexity")
-plt.ylabel("Time required")
-plt.plot(x,times1)
-plt.show()
-"""
-
-
-times11 = []
-
-for y in range(0,10,1):
-    start_time = time.perf_counter()
-    a = h.createMatrix(N)
-    h.customDCT(a, N)
-    elapsed_time = time.perf_counter() - start_time
-    N = N + 5
-    times11.append(elapsed_time)
-    
-y = [j for j in range(0,10,1)]
-plt.figure()
-plt.title("DCT2 CUSTOM")
-plt.xlabel("Complexity")
-plt.ylabel("Time required")
-plt.plot(y, times11)
-plt.show()
