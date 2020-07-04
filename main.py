@@ -1,15 +1,16 @@
 """ Il file main.py e ci aiuter� a programmare una semplice interfaccia per l'utente in cui si
 ha la possibilità  a scegliere le immagini attuali del programma oppure
 un'altra immagine scelta dall'utente.
+
 """
 
 # importo delle libreri necessarie
 
 
-from models.jpeg import Jpeg as j
+from models.jpeg import *
 from sys import exit
 import time
-
+import imageio as imread
 
 print("\t\t ^^^^^^^^^ Programma JPEG ^^^^^^^^^ \n\n")
 print("1. Inizia programma\n0. Esci dal programma\n\n")
@@ -40,20 +41,14 @@ if g != "0":
 
     start = time.perf_counter()
 
-    j.display(image)
-
-    dim = input("Scegliere la dimensione di taglio immagine:\t")
-
-    j.cutImage(image, int(dim))
 
     f = input("Scegliere la dimensione del blocco F:\t")
 
     d = input("Scegliere il taglio d tra [0: 2F-2]:\t")
 
-    j.dctEncode(image, int(dim), int(f), int(d))
-
-    j.idctDecode(image, int(dim), int(f), int(d))
+    display_images(image, f, d)
 
     end = time.perf_counter()
 
-    j.compare(image)
+    print(end - start, "Tempo di esecuzione")
+    print()

@@ -1,39 +1,40 @@
-from models.home import Home as h
+from models.dctHome import Home
 import time
 import plotly.express as px
 import numpy as np
 import csv
 import pandas as pd
 
+"""
 dimension_array = np.linspace(25, 700, num=28)
 time_array_library_dct = []
 time_array_my_dct = []
+h = Home()
+
 for dimension in dimension_array:
-    print("Computazione delle dimensioni: " + str(dimension))
-    matrix = h.createMatrix(dimension)
+    print("Computazione dimensioni in corso: " + str(dimension))
+    matrix = h.createMatrix(N=dimension)
 
-    start_time = time.time()
-    fastDCT = h.DCT2(matrix)
-    time_array_library_dct.append(time.time() - start_time)
+    start_time = time.process_time()
+    fastDCT = h.fft2(matrix)
+    time_array_library_dct.append(time.perf_counter() - start_time)
 
-    start_time = time.time()
-    myDCT = h.customDCT(matrix, dimension)
-    time_array_my_dct.append(time.time() - start_time)
+    start_time = time.process_time()
+    myDCT = h.dct(matrix, dimension)
+    time_array_my_dct.append(time.process_time() - start_time)
 
-# qui scriviamo il risultato in file csv che ci servirà per registrare i dati
-# per poi plottare il grafico
+
+
 with open('data/data.csv', 'w') as w:
     writer = csv.writer(w, delimiter=',')
     writer.writerows(zip(dimension_array, time_array_library_dct, time_array_my_dct))
 
-
 """
-Il codice sotto ci permette di vedere graficamente il comportamento computazionale delle nostre
-trasformate
 
+df = pd.read_csv ('data/data.csv')
 
-df = pd.read_csv('data/data.csv') # legge il file csv
+fig = px.line (df, x=df['Dimensione'], y=['FFT'], title='Grafico della trasformata FFT').show()
 
-fig = px.line(df, title='Complessità computazionale delle DCT (Fast e Custom inclusa)')
-fig.show()
-"""
+fig2 = px.line (df, x=df['Dimensione'], y=['DCTHome'], title='Grafico della trasformata DCT Home').show()
+
+fig3 = px.line (df, title='Grafico di confronto delle trasformate DCT').show()
