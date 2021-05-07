@@ -1,10 +1,10 @@
-""" Il file main.py e ci aiuter� a programmare una semplice interfaccia per l'utente in cui si
-ha la possibilità  a scegliere le immagini attuali del programma oppure
-un'altra immagine scelta dall'utente.
+""" Il file main.py contiene una semplice interfaccia per l'utente in cui si
+ha la possibilità  di scegliere le immagini attuali del programma oppure
+con altre immagini caricate sul folder
 
 """
 
-# importo delle libreri necessarie
+# importo delle librerie necessarie
 
 
 from models.jpeg import *
