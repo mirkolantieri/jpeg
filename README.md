@@ -4,7 +4,7 @@
 ***
 <div>
 <i><b>LANTIERI MIRKO</b></i>
-<br>Matricola 858278
+<br>
 <br>Email: m.lantieri@campus.unimib.it
 </div>
 
