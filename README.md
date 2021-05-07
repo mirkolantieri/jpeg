@@ -56,10 +56,13 @@ Le immagini utlizzate si trovano nel folder data:
 5. Millenium Falcon: [logo](/data/MilleniumFalcon.bmp "MilleniumFalcon.bmp")
 
 # 3. Libreria Jpeg (Custom)
-La libreria `Jpeg` si trova nel folder `models/` ed è composta da seguenti metodi:
+La libreria `Jpeg` si trova all'interno del folder `models/` ed è composta da i seguenti file:
 
- ```python
- # Costruttore: inizializza l'oggetto
-    def __init__(self):
-        return 
-```
+
+
+
+ ```
+ models/
+  dctHome.py
+  jpeg.py
+ ```
