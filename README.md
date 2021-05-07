@@ -21,8 +21,8 @@ L'ambiente open source utilizzato come un possibile avversario potenziale di Mat
 <br>
 Nel caso si riscontra qualche problema nell'importare il progetto nel proprio
 ambiente IDE, installare i pacchetti utilizzando il file testo <i>"requirements.txt"</i> per risolvere eventuali conflitti
-digitando il seguente comando:
- *pip install -r requirements.txt (Windows)* 
+digitando il seguente comando: <br>
+ *pip install -r requirements.txt (Windows)* <br>
  *pip3 install -r requirements.txt (Linux/ macOS)*
 </p>
 
