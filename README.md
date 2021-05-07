@@ -20,7 +20,10 @@ L'ambiente open source utilizzato come un possibile avversario potenziale di Mat
 è quello di <b>Python</b>, nello specifico il framework <b>Anaconda3</b>.
 <br>
 Nel caso si riscontra qualche problema nell'importare il progetto nel proprio
-ambiente IDE (utilizzare Spyder), guardare il testo <i>"requirements.txt"</i> per risolvere eventuali conflitti. 
+ambiente IDE, installare i pacchetti utilizzando il file testo <i>"requirements.txt"</i> per risolvere eventuali conflitti
+digitando il seguente comando:
+ *pip install -r requirements.txt (Windows)* 
+ *pip3 install -r requirements.txt (Linux/ macOS)*
 </p>
 
 ## 1.1 Dati e codice sorgente
